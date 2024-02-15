@@ -1,0 +1,10 @@
+{
+    "workbench.colorTheme": "Do You Even Dev, bro?",
+    "workbench.iconTheme": "file-icons",
+    "editor.fontFamily": "Monaspace Radon",
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorWidth": 2,
+    "terminal.integrated.cursorStyleInactive": "none",
+    "editor.fontLigatures": true
+}
