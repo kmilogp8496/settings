@@ -139,27 +139,6 @@ function gdc() {
   fi
 }
 
-# -------------------------------- #
-# Directories
-#
-# I put
-# `~/i` for my projects
-# `~/f` for forks
-# `~/r` for reproductions
-# -------------------------------- #
-
-function i() {
-  cd ~/i/$1
-}
-
-function repros() {
-  cd ~/r/$1
-}
-
-function forks() {
-  cd ~/f/$1
-}
-
 function pr() {
   if [ $1 = "ls" ]; then
     gh pr list
@@ -180,23 +159,6 @@ function clone() {
   fi
 }
 
-# Clone to ~/i and cd to it
-function clonei() {
-  i && clone "$@" && code . && cd ~2
-}
-
-function cloner() {
-  repros && clone "$@" && code . && cd ~2
-}
-
-function clonef() {
-  forks && clone "$@" && code . && cd ~2
-}
-
-function codei() {
-  i && code "$@" && cd -
-}
-
 function serve() {
   if [[ -z $1 ]] then
     live-server dist
@@ -204,6 +166,8 @@ function serve() {
     live-server $1
   fi
 }
+
+alias bat='batcat'
 
 alias bathelp='bat --plain --language=help'
 
@@ -219,8 +183,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# eval "$(starship init zsh)"
-
 # pnpm
 export PNPM_HOME="/home/kmilo/.local/share/pnpm"
 case ":$PATH:" in
@@ -228,9 +190,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 
 alias office='openvpn3 session-start --config ~/vpn/office/office_es.ovpn'
 
